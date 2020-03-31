@@ -1,0 +1,15 @@
+{
+  "name": "homecc",
+  "version": "1.0.0",
+  "description": "Control Center for Raspberry PI home server",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "Rohan Gangaraju",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^8.2.0"
+  }
+}

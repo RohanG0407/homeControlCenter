@@ -5,6 +5,7 @@ const url = require('url');
 
 
 let win;
+let prog = "hello";
 // Define Menu Bar
 let menuTemplate = [
     {

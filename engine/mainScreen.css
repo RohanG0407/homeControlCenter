@@ -72,7 +72,13 @@ body {
     position: relative;
     z-index: 0;
     float: left;
+
 }
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+
 
 .card {
     width: 45%;

@@ -5,7 +5,6 @@ const url = require('url');
 
 
 let win;
-let prog = "hello";
 // Define Menu Bar
 let menuTemplate = [
     {
@@ -55,7 +54,6 @@ app.on('ready' ,() => {
     //Adds menu to browserWindow
     const mainMenu = Menu.buildFromTemplate(menuTemplate);
     Menu.setApplicationMenu(mainMenu);
-    localStorage.setItem("String", "Hello");
 });
 
 //If in development stage add devtools menu option

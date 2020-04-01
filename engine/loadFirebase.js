@@ -16,7 +16,7 @@ firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
 
-database.ref('/sensors/temp/-M1HA5HWbyUfE53BEXxg').once('value').then(function(snapshot) {
+/*database.ref('/sensors/temp/-M1HA5HWbyUfE53BEXxg').once('value').then(function(snapshot) {
     console.log(snapshot.val().Date);
 });
 
@@ -28,5 +28,5 @@ function writeData(userId, name, email, password) {
     });
 }
 
-writeData("rohang0407","Rohan Gangaraju", "gangaraju.rohan@gmail.com", "Rohan07");
+writeData("rohang0407","Rohan Gangaraju", "gangaraju.rohan@gmail.com", "Rohan07"); */
 

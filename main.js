@@ -27,6 +27,7 @@ process.env.NODE_ENV = 'development';
 function newWindow(win, html, main = true, menu = menuTemplate) {
     win = new BrowserWindow({
         title: "Control Center",
+        fullscreen: true,
         webPreferences: {
             nodeIntegration: true
         },

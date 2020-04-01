@@ -1,7 +1,7 @@
 body {
     background: rgb(30,30,45);
     color: lightgray;
-    font-family: "Helvetica Neue";
+    font-family: "Helvetica Neue", serif;
     margin: 0;
 }
 #screen {
@@ -33,14 +33,20 @@ body {
     z-index: 5;
     border-radius: 10px;
     overflow: auto;
+    display: inline-block;
 }
 #sidebar_list {
     list-style-type:none;
     padding: 0;
+    margin: 0;
     position: absolute;
 }
+
+.lis {
+    position: relative;
+}
 .sidebar-item {
-    width: 50px;
+    width: 200%;
     height: 50px;
     z-index: 5;
     display: inline;
@@ -50,9 +56,8 @@ body {
     margin-bottom: 40%;
 }
 .sidebar-item-icon {
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
+    margin-left: 10%;
+    display: inline-block;
 }
 #cardScreen {
     display: flex;

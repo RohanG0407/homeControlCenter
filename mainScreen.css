@@ -1,0 +1,100 @@
+body {
+    background: rgb(30,30,45);
+    color: lightgray;
+    font-family: "Helvetica Neue", serif;
+    margin: 0;
+}
+#screen {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+}
+#menubar {
+    height: 6%;
+}
+#menubar-item {
+    font-size: x-large;
+}
+#sidebar_container {
+    height: 94%;
+    width: 8%;
+    margin: 0;
+    border-width: 2px;
+    position: absolute;
+    z-index: 4;
+}
+#sidebar {
+    width: 70%;
+    height: 98.9%;
+    margin-left: 15%;
+    margin-right: 15%;
+    bottom: 0;
+    background: rgb(206,91,199);
+    position: absolute;
+    z-index: 5;
+    border-radius: 10px;
+    overflow: auto;
+    display: inline-block;
+}
+#sidebar_list {
+    list-style-type:none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    position: absolute;
+}
+
+.lis {
+    position: relative;
+}
+.sidebar-item {
+    width: 100%;
+    height: 50px;
+    z-index: 5;
+    display: inline;
+    float: left;
+    margin-left: 15%;
+    margin-top: 35%;
+    margin-bottom: 35%;
+}
+.sidebar-item-icon {
+    margin-left: 5.7px;
+    display: inline-block;
+    margin-right: 5%;
+}
+#cardScreen {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 92%;
+    margin-left: 8%;
+    margin-right: 0;
+    top: 0;
+    justify-content: space-evenly;
+    overflow: auto;
+    position: relative;
+    z-index: 0;
+    float: left;
+
+}
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+
+
+.card {
+    width: 45%;
+    height: 30%;
+    border-width: 2px;
+    margin: 12px 12px 12px 0px;
+    background: rgb(39,41,59);
+    z-index: 1;
+    border-radius: 10px;
+}
+#graph {
+    width: 88%;
+}
+

@@ -5,6 +5,7 @@
 
 ```
 NodeJS
+Python 2.7
 ```
 
 ### Installing

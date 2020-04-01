@@ -25,8 +25,9 @@ npm install --save electron
 npm install --save firebase
 npm install --save firebase-admin
 npm install --save python-shell
-npm install mapbox-gl --save
+npm install --save mapbox-gl 
 npm install --save jquery
+npm install --save chart.js
 
 ```
 
@@ -36,12 +37,10 @@ npm install --save jquery
 CD to the folder where you downloading everything
 ```
 cd /WebstormProjects/homeControlCenter
-
 ```
 
 Then run npm start
 
 ```
 npm start
-
 ```

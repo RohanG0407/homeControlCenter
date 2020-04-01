@@ -3,7 +3,11 @@
     flex-direction: column;
     width: 8%;
     height: 100%;
-    border-width: 2px;
+    background: red;
+}
+#sidebar_container {
+    height: 100%;
+    width: 8%;
 }
 #cardScreen {
     display: flex;
@@ -22,8 +26,14 @@
     height: 40%;
     border-width: 2px;
     margin: 20px;
+    background: rgb(39,41,59);
 }
 
 #graph {
     width: 70%;
+}
+
+body {
+    background: rgb(30,30,45);
+    color: lightgray;
 }

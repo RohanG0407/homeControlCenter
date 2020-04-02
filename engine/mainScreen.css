@@ -58,6 +58,7 @@ body {
     margin-left: 15%;
     margin-top: 35%;
     margin-bottom: 35%;
+    cursor: pointer;
 }
 .sidebar-item-icon {
     margin-left: 5.7px;
@@ -96,5 +97,10 @@ body {
 }
 #graph {
     width: 88%;
+}
+
+#myChart {
+    width: 100%;
+    height: 100%;
 }
 

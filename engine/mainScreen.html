@@ -27,47 +27,47 @@
             <ul id="sidebar_list">
                 <li class="lis">
                     <div class="sidebar-item">
-                        <p><img src="./assets/home.png" width="40" height="40" alt="" class="sidebar-item-icon"></p>
+                        <p><img src="./assets/sidebar0.png" width="40" height="40" alt="" class="sidebar-item-icon"></p>
                     </div>
                 </li>
                 <li class="lis">
                     <div class="sidebar-item">
-                        <p><img src="./assets/home.png" width="40" height="40" alt="" class="sidebar-item-icon"></p>
+                        <p><img src="./assets/sidebar1.png" width="40" height="40" alt="" class="sidebar-item-icon"></p>
                     </div>
                 </li>
                 <li class="lis">
                     <div class="sidebar-item">
-                        <p><img src="./assets/home.png" width="40" height="40" alt="" class="sidebar-item-icon"></p>
+                        <p><img src="./assets/sidebar2.png" width="40" height="40" alt="" class="sidebar-item-icon"></p>
                     </div>
                 </li>
                 <li class="lis">
                     <div class="sidebar-item">
-                        <p><img src="./assets/home.png" width="40" height="40" alt="" class="sidebar-item-icon"></p>
+                        <p><img src="./assets/sidebar3.png" width="40" height="40" alt="" class="sidebar-item-icon"></p>
                     </div>
                 </li>
                 <li class="lis">
                     <div class="sidebar-item">
-                        <p><img src="./assets/home.png" width="40" height="40" alt="" class="sidebar-item-icon"></p>
+                        <p><img src="./assets/sidebar4.png" width="40" height="40" alt="" class="sidebar-item-icon"></p>
                     </div>
                 </li>
                 <li class="lis">
                     <div class="sidebar-item">
-                        <p><img src="./assets/home.png" width="40" height="40" alt="" class="sidebar-item-icon"></p>
+                        <p><img src="./assets/sidebar5.png" width="40" height="40" alt="" class="sidebar-item-icon"></p>
                     </div>
                 </li>
                 <li class="lis">
                     <div class="sidebar-item">
-                        <p><img src="./assets/home.png" width="40" height="40" alt="" class="sidebar-item-icon"></p>
+                        <p><img src="./assets/sidebar6.png" width="40" height="40" alt="" class="sidebar-item-icon"></p>
                     </div>
                 </li>
                 <li class="lis">
                     <div class="sidebar-item">
-                        <p><img src="./assets/home.png" width="40" height="40" alt="" class="sidebar-item-icon"></p>
+                        <p><img src="./assets/sidebar7.png" width="40" height="40" alt="" class="sidebar-item-icon"></p>
                     </div>
                 </li>
                 <li class="lis">
                     <div class="sidebar-item">
-                        <p><img src="./assets/home.png" width="40" height="40" alt="" class="sidebar-item-icon"></p>
+                        <p><img src="./assets/sidebar8.png" width="40" height="40" alt="" class="sidebar-item-icon"></p>
                     </div>
                 </li>
 
@@ -79,7 +79,21 @@
     <!-- Display Cards -->
     <div class="flex-container" id="cardScreen">
         <script src="loadFirebase.js"></script>
-        <div class="card" id="graph">1</div>
+        <div class="card" id="graph">
+            <canvas id="myChart"></canvas>
+            <script>
+                function fitToContainer(canvas){
+                    // Make it visually fill the positioned parent
+                    canvas.style.width ='100%';
+                    canvas.style.height='100%';
+                    // ...then set the internal size to match
+                    canvas.width  = canvas.offsetWidth;
+                    canvas.height = canvas.offsetHeight;
+                }
+                var canvas = document.getElementById('myChart');
+                fitToContainer(canvas);
+            </script>
+        </div>
         <div class="card">2</div>
         <div class="card">3</div>
         <div class="card">4</div>
@@ -101,5 +115,6 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="navbar.js"></script>
+<script src="tempCard.js"></script>
 </body>
 </html>

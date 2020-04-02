@@ -7,6 +7,7 @@ sidebar_margin = sidebar_itemwidth.substring(0,sidebar_itemwidth.length -2 );
 sidebar_marginP = parseInt(sidebar_margin);
 sidebar_marginV = (sidebar_marginP * .35);
 sidebar_marginL = (sidebar_marginP * .15);
+let sidebarTexts = ["Home", "Database", "Battery", "Wifi", "Users", "Controls", "Maps", "Settings", "Exit"]
 
 
 
@@ -19,7 +20,8 @@ function onMouseEnter() {
         sidebaritems[i].style.marginTop = sidebar_marginV +'px';
         sidebaritems[i].style.marginBottom = sidebar_marginV +'px';
         sidebaritems[i].style.marginLeft = sidebar_marginL +'px';
-        sidebaritems[i].innerHTML = "<p><img src=\"./assets/home.png\" width=\"40\" height=\"40\" alt=\"\" class=\"sidebar-item-icon\">Some text</p>"
+        var imgSrc = "./assets/sidebar" + i + ".png";
+        sidebaritems[i].innerHTML = '<p><img src=' + imgSrc + ' width=\"40\" height=\"40\" alt=\"\" class=\"sidebar-item-icon\">' + sidebarTexts[i] + '</p>'
     }
 
     }
@@ -33,7 +35,7 @@ function onMouseExit() {
         sidebaritems[i].style.marginTop = sidebar_marginV +'px';
         sidebaritems[i].style.marginBottom = sidebar_marginV +'px';
         sidebaritems[i].style.marginLeft = sidebar_marginL +'px';
-        sidebaritems[i].innerHTML = "<p><img src=\"./assets/home.png\" width=\"40\" height=\"40\" alt=\"\" class=\"sidebar-item-icon\"></p>"
-    }
+        var imgSrc = "./assets/sidebar" + i + ".png";
+        sidebaritems[i].innerHTML = '<p><img src=' + imgSrc + ' width=\"40\" height=\"40\" alt=\"\" class=\"sidebar-item-icon\"></p>'    }
 
 }

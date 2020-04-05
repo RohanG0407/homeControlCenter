@@ -1,5 +1,8 @@
 const firebase = require('firebase/app');
+const {ipcRenderer} = require('electron');
 require('firebase/database');
+
+
 
 var firebaseConfig = {
     apiKey: "AIzaSyBighCpEuN8z1agFEtznM1BqEYQnk8glmU",
@@ -12,13 +15,24 @@ var firebaseConfig = {
     measurementId: "G-LS7488JT2C"
 };
 
-firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
 
 var database = firebase.database();
 
-database.ref('/sensors/temp/').once('value').then(function(snapshot) {
-    console.log(snapshot.val().Date);
-});
+
+function takeSnapshot() {
+    database.ref('/sensors/temp/').once('value').then(function(snapshot) {
+        data = snapshot.val();
+        ipcRenderer.send("new-snapshot", data);
+    });
+
+}
+
+takeSnapshot()
+
+
 
 function writeData(userId, name, email, password) {
     database.ref('users/' + userId).set({

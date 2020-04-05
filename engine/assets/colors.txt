@@ -1,0 +1,7 @@
+background = rgb(206,91,199);
+cards = rgb(39,41,59)
+
+sidebar = rgb(206,91,199)
+
+poweron = rgb(117,250,149)
+poweroff = rgb(237,105,57)

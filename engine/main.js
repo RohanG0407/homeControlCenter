@@ -57,6 +57,11 @@ app.on('ready' ,() => {
     Menu.setApplicationMenu(mainMenu);
 });
 
+ipcMain.on("new-snapshot", (event, args) => {
+    event.reply("reply", args);
+});
+
+
 //If in development stage add devtools menu option
 if(process.env.NODE_ENV !== 'production') {
     menuTemplate.push(

@@ -12,7 +12,7 @@ let sidebarTexts = ["Home", "Database", "Battery", "Wifi", "Users", "Controls", 
 
 
 function onMouseEnter() {
-    document.getElementById('sidebar').style.width = '250%';
+    document.getElementById('sidebar').style.width = '200%';
     document.getElementById('menubar-item').innerHTML = "<img src=\"./assets/menu-2.png\" width=\"40\" height=\"40\" alt=\"\" class=\"d-inline-block align-top\" style=\"margin-right: 10%;\"> Sidebar"
     var sidebaritems = document.getElementsByClassName('sidebar-item');
     for(var i = 0; i < sidebaritems.length; i++){

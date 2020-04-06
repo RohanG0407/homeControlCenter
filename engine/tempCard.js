@@ -7,7 +7,7 @@ var ctx = document.getElementById('myChart');
 
 ipcRenderer.on("reply", (event, args) => {
     data = args;
-    for(var i = 0; i < Object.keys(data).length; i++){
+    for(var i = 100; i < Object.keys(data).length; i++){
         var element = Object.keys(data)[i];
         var element_Split = element.split("|");
         dateSplit = element_Split[0].split("-");
@@ -54,14 +54,14 @@ var myChart = new Chart(ctx, {
             ],
             borderWidth: 1,
             fill: false,
-            showLine: false
+            showLine: true
         }]
     },
     options: {
         scales: {
             xAxes: [{
                 type: 'time',
-                distribution: 'linear',
+                distribution: 'series',
                 time: {
                     displayFormats: {
                         'millisecond': 'h:mm:ss a',

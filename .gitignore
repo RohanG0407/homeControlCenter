@@ -1,3 +1,4 @@
 /engine/.idea
 /engine/node_modules
 .idea
+node_modules

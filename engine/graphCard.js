@@ -1,5 +1,5 @@
 var Chart = require('chart.js');
-const loadFirebase = require('./loadFirebase.js');
+require('./loadFirebase.js');
 const {ipcRenderer} = require('electron');
 var ctx = document.getElementById('myChart');
 Chart.defaults.global.legend.display = false;
@@ -14,7 +14,7 @@ ipcRenderer.on("reply", (event, args) => {
         timeSplit = element_Split[1].split("-");
         var temp = data[element]['Temp'];
         var temp  = (temp * (9/5)) + 32;
-        var date = new Date(dateSplit[0], dateSplit[1], dateSplit[2], timeSplit[0], timeSplit[1], timeSplit[2]);
+        var date = new Date(dateSplit[0], dateSplit[1]-1, dateSplit[2], timeSplit[0], timeSplit[1], timeSplit[2]);
         var newPush = {
             t: date,
             y: temp,

@@ -1,7 +1,7 @@
 const firebase = require('firebase/app');
 const {ipcRenderer} = require('electron');
 require('firebase/database');
-
+const hello = "hello";
 
 
 var firebaseConfig = {
@@ -32,7 +32,7 @@ function takeSnapshot() {
 }
 
 //Calls
-
+takeSnapshot();
 
 
 

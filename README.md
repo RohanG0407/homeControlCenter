@@ -29,6 +29,7 @@ npm install --save python-shell
 npm install --save mapbox-gl 
 npm install --save jquery
 npm install --save chart.js
+npm install --save request
 
 ```
 

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel='stylesheet' href="mainScreen.css">
+    <script src="modStatus.js"></script>
     <title>Control Center</title>
 </head>
 <body>
@@ -95,8 +96,10 @@
             </script>
         </div>
         <div class="card status">
-            <a onclick="status_onclick()" class="status-icon">
-                <img src="./assets/poweroff.png" width="100" height="100" alt="" >
+            <a onclick="ac_onclick()" class="status-icon" id="ac_icon">
+                <script>
+                    ac_onload();
+                </script>
             </a>
         </div>
         <div class="card status">3</div>
@@ -120,6 +123,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="navbar.js"></script>
 <script src="graphCard.js"></script>
-<script src="modStatus.js"></script>
+<script src="sendRequest.js"></script>
 </body>
 </html>

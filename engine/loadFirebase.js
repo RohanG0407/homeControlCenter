@@ -32,7 +32,7 @@ function takeSnapshot() {
 }
 
 //Calls
-takeSnapshot();
+
 
 
 

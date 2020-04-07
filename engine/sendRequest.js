@@ -1,12 +1,15 @@
-var request = require("request");
+var request = require('request');
 
+function newRequest(method, command) {
 request({
     uri: "http://192.168.86.49:3000/assistant",
-    method: "POST",
+    method: method,
     form: {
         user: "ron",
-        command: "turn off the ac"
+        command: command
     }
 }, function (error, response, body) {
     console.log(error);
 });
+
+}

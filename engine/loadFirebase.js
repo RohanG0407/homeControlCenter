@@ -21,25 +21,25 @@ if (!firebase.apps.length) {
 
 var database = firebase.database();
 
-
+//take 1 picture of the entire database -- no listener for updates
 function takeSnapshot() {
     database.ref('/sensors/temp/').once('value').then(function(snapshot) {
         data = snapshot.val();
+        //sends message to graphCard.js with database data
         ipcRenderer.send("new-snapshot", data);
     });
 
 }
 
-takeSnapshot()
+//Calls
+takeSnapshot();
 
 
 
-function writeData(userId, name, email, password) {
-    database.ref('users/' + userId).set({
-        username: name,
-        email: email,
-        password: password
-    });
+function writeData(path, object) {
+    database.ref(path).patch(object);
 }
+
+
 
 

@@ -100,6 +100,9 @@ body {
     width: 20%;
 }
 
+#map_card {
+    height: 60%;
+}
 .status-icon {
     margin: auto;
     cursor: pointer;

@@ -4,6 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://api.mazemap.com/js/v2.0.25/mazemap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
     <link rel='stylesheet' href="mainScreen.css">
     <script src="modStatus.js"></script>
     <title>Control Center</title>
@@ -27,7 +29,7 @@
              onmouseleave="onMouseExit()">
             <ul id="sidebar_list">
                 <li class="lis">
-                    <div class="sidebar-item">
+                    <div class="sidebar-item" onclick="window.location.href='mainScreen.html'">
                         <p><img src="./assets/sidebar0.png" width="40" height="40" alt="" class="sidebar-item-icon"></p>
                     </div>
                 </li>
@@ -62,7 +64,7 @@
                     </div>
                 </li>
                 <li class="lis">
-                    <div class="sidebar-item">
+                    <div class="sidebar-item" onclick="window.location.href='settings.html'">>
                         <p><img src="./assets/sidebar7.png" width="40" height="40" alt="" class="sidebar-item-icon"></p>
                     </div>
                 </li>
@@ -103,16 +105,19 @@
             </a>
         </div>
         <div class="card status">
-            <a onclick="ac_onclick()" class="status-icon" id="raspberrypi_icon">
-                <img src="./assets/raspberryon.png" width="200" height="200" alt="" >
+            <a onclick="pi_onclick()" class="status-icon" id="pi_icon">
+                <script>
+                    pi_onload();
+                </script>
             </a>
         </div>
         <div class="card status">4</div>
         <div class="card status">5</div>
-        <div class="card">6</div>
+        <div class="card" id="map_card">
+        </div>
         <div class="card">7</div>
-        <div class="card">8</div>
-        <div class="card">9</div>
+        <!-- class="card">8</div-->
+        <div class="card" id="test_card">9</div>
 
     </div>
 

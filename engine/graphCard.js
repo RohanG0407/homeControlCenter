@@ -3,6 +3,8 @@ require('./loadFirebase.js');
 const {ipcRenderer} = require('electron');
 var ctx = document.getElementById('myChart');
 Chart.defaults.global.legend.display = false;
+Chart.defaults.global.defaultFontColor = "#b48ead";
+
 
 //gets data from loadFirebase.js
 ipcRenderer.on("reply", (event, args) => {
@@ -42,14 +44,15 @@ var myChart = new Chart(ctx, {
             fill: false,
             showLine: true,
             pointBorderWidth: 2,
-            pointBorderColor: 'rgba(255, 255, 255, .5)',
-            borderColor: 'rgba(255, 255, 0, .5)',
+            pointBorderColor: '#d8dee9',
+            borderColor: '#b48ead',
+
         }]
     },
     options: {
         title: {
             display: true,
-            text: "Temperature"
+            text: "Temperature",
         },
         scales: {
             xAxes: [{
@@ -72,6 +75,11 @@ var myChart = new Chart(ctx, {
                     },
                 }
             }],
+        },
+
+        animation: {
+            duration: 2000,
+            easing: "easeInExpo",
         }
     }
 });

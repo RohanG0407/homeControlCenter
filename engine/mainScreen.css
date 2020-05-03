@@ -1,5 +1,6 @@
 body {
-    background: rgb(30,30,45);
+    /*background: rgb(30,30,45);*/
+    background: #2e3440;
     color: lightgray;
     font-family: "Helvetica Neue", serif;
     margin: 0;
@@ -29,7 +30,8 @@ body {
     margin-left: 15%;
     margin-right: 15%;
     bottom: 0;
-    background: rgb(206,91,199);
+    /*background: rgb(206,91,199);*/
+    background: #d08770;
     position: absolute;
     z-index: 5;
     border-radius: 10px;
@@ -92,7 +94,8 @@ body {
     height: 30%;
     border-width: 2px;
     margin: 12px 12px 12px 0px;
-    background: rgb(39,41,59);
+    /*background: rgb(39,41,59);*/
+    background: #434c5e;
     z-index: 1;
     border-radius: 10px;
 }

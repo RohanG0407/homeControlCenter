@@ -1,7 +1,9 @@
 const firebase = require('firebase/app');
 const {ipcRenderer} = require('electron');
 require('firebase/database');
-const hello = "hello";
+hello = "hello";
+data = 0;
+
 
 
 var firebaseConfig = {
@@ -24,7 +26,7 @@ var database = firebase.database();
 //take 1 picture of the entire database -- no listener for updates
 function takeSnapshot() {
     database.ref('/sensors/temp/').once('value').then(function(snapshot) {
-        data = snapshot.val();
+         data = snapshot.val();
         //sends message to graphCard.js with database data
         ipcRenderer.send("new-snapshot", data);
     });

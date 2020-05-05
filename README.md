@@ -1,5 +1,6 @@
 # homeControlCenter
 
+![Error](docs/screen.PNG)
 
 ### Prerequisites
 

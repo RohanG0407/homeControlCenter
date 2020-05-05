@@ -122,3 +122,13 @@ body {
     height: 100%;
 }
 
+#currenttemp {
+    margin: auto;
+    margin-top: 5%;
+}
+
+#settemp {
+    margin: auto;
+    margin-top: 5%;
+}
+

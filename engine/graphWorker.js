@@ -2,6 +2,8 @@ self.addEventListener('message' ,(ev) => {
     console.log("Graph Worker began with message: ", ev.data);
     let args = ev.data;
 
+    //function that loops through entire database and formats objects appropriatly before sending to chart display
+
     let arr = [];
     for(var i = 0; i < Object.keys(args).length; i++) {
         var element = Object.keys(args)[i];

@@ -5,37 +5,50 @@ var ctx = document.getElementById('myChart');
 Chart.defaults.global.legend.display = false;
 Chart.defaults.global.defaultFontColor = "#b48ead";
 let worker;
+
+// Used for timing how such certain methods take
 const tick = Date.now();
 const log = (v) => console.log(`${v} \n Elapsed: ${Date.now() - tick}ms`);
 
+//function to initialize the worker for formatting firebase DHT11 data (Takes about 1500 ms)
 function initWorker() {
     worker = new Worker('graphWorker.js');
     worker.addEventListener('message', workerMessaged);
     worker.addEventListener('error', workerError);
 }
 
+//function to handle the web worker sending back the formatted data
 async function workerMessaged(ev) {
     updateArray(ev.data);
     log("chart updated");
 }
 
+//function to handle the web worker sendign back an error
 function workerError(ev) {
     let v = ev.data;
     console.log(v);
 }
 
+
+// initializes the graphWorker.js
 initWorker();
-//gets data from loadFirebase.js
+
+//function to take start the updateChart process
+
 async function updateChart () {
     log("calling");
+    //aquires a snapshot of the realtime database
     await loadF.takeSnap();
     log('data recieved');
+    //sends this data to be analyzed by the web worker grapHWorker.js in the background
     worker.postMessage(loadF.data);
 }
+
+//updates Chart
 updateChart();
 
 
-
+// chart properties
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
@@ -86,6 +99,7 @@ var myChart = new Chart(ctx, {
     }
 });
 
+// formats data properly so it can be displayed on graph
 function normalizeData(sortedrawData) {
     let normalizedArray = [{}];
     let firstElementofHour = false;
@@ -125,8 +139,9 @@ function normalizeData(sortedrawData) {
     return normalizedArray;
 }
 
-
+// function that takes in data from webWorker and adds it to the chart a
 var updateArray = async(rawArray) => {
+    //sorts the dataset in chronological order
     rawArray.sort(function(a, b) {
         var a = new Date(a.t);
         var b = new Date(b.t);

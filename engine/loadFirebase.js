@@ -3,7 +3,7 @@ const {ipcRenderer} = require('electron');
 require('firebase/database');
 data = 0;
 
-
+//firebase security configs REQUIRED
 
 module.exports.firebaseConfig = {
     apiKey: "AIzaSyBighCpEuN8z1agFEtznM1BqEYQnk8glmU",
@@ -16,10 +16,13 @@ module.exports.firebaseConfig = {
     measurementId: "G-LS7488JT2C"
 };
 
+//checks if firebase is already initialized
 if (!firebase.apps.length) {
+    //if already not initliazed, initializes firebase
     firebase.initializeApp(module.exports.firebaseConfig);
 }
 
+//reference of the realtime database
 var database = firebase.database();
 
 //take 1 picture of the entire database -- no listener for updates
@@ -32,7 +35,7 @@ module.exports.takeSnap = async function() {
 
 
 
-
+//used to write data to certain database path given the object
 function writeData(path, object) {
     database.ref(path).patch(object);
 }

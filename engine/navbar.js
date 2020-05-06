@@ -16,7 +16,7 @@ var sidebarOpen = false;
 
 function onMouseEnter() {
     sidebarOpen = true;
-    document.getElementById('sidebar').style.width = '150%';
+    document.getElementById('sidebar').style.width = '180%';
     document.getElementById('menubar-item').innerHTML = "<img src=\"./assets/menu-2.png\" width=\"40\" height=\"40\" alt=\"\" class=\"d-inline-block align-top\" style=\"margin-right: 10%;\"> Sidebar";
     var sidebaritems = document.getElementsByClassName('sidebar-item');
     for (var i = 0; i < sidebaritems.length; i++) {

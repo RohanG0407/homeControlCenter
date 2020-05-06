@@ -132,3 +132,15 @@ body {
     margin-top: 5%;
 }
 
+canvas {
+    border-radius: 10px;
+}
+
+#temp_card {
+    height: 60%;
+}
+
+#test_card {
+    height: 4%;
+}
+

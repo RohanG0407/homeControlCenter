@@ -11,6 +11,8 @@
   "license": "MIT",
   "dependencies": {
     "chart.js": "^2.9.3",
+    "datatables.net": "^1.10.20",
+    "datatables.net-dt": "^1.10.20",
     "electron": "^8.2.0",
     "firebase": "^7.13.1",
     "firebase-admin": "^8.10.0",

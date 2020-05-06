@@ -2,6 +2,7 @@ const electron = require('electron');
 const {app, BrowserWindow, Menu, ipcMain} = electron;
 const path = require('path');
 const url = require('url');
+var firebaseData;
 
 
 let win;
@@ -56,6 +57,16 @@ app.on('ready' ,() => {
     const mainMenu = Menu.buildFromTemplate(menuTemplate);
     Menu.setApplicationMenu(mainMenu);
 });
+
+ipcMain.on('asynMessage', (event, args) => {
+    firebaseData = args;
+    event.sender.send('asynReply','Main said: Async message received')
+});
+
+ipcMain.on('firebaseM', (event, args) => {
+    event.sender.send('firebaseR',firebaseData)
+});
+
 
 
 //If in development stage add devtools menu option

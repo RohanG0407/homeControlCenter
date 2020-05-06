@@ -5,6 +5,7 @@ var ctx = document.getElementById('myChart');
 Chart.defaults.global.legend.display = false;
 Chart.defaults.global.defaultFontColor = "#b48ead";
 let worker;
+var normalData;
 
 // Used for timing how such certain methods take
 const tick = Date.now();
@@ -21,6 +22,7 @@ function initWorker() {
 async function workerMessaged(ev) {
     updateArray(ev.data);
     log("chart updated");
+    ipcRenderer.send('asynMessage', normalData)
 }
 
 //function to handle the web worker sendign back an error
@@ -44,8 +46,14 @@ async function updateChart () {
     worker.postMessage(loadF.data);
 }
 
+
+
 //updates Chart
 updateChart();
+
+ipcRenderer.on('asynReply', (event, args) => {
+    console.log(args);
+});
 
 
 // chart properties
@@ -147,6 +155,7 @@ var updateArray = async(rawArray) => {
         var b = new Date(b.t);
         return a>b ? -1 : a<b ? 1 : 0;
     });
+    normalData = rawArray;
     myChart.data.datasets[0]['data'] = normalizeData(rawArray);
     myChart.update();
 };

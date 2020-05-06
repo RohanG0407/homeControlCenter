@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel='stylesheet' href="mainScreen.css">
+    <link rel='stylesheet' href="database.css">
     <title>Title</title>
 </head>
 <body>
@@ -30,7 +32,7 @@
                     </div>
                 </li>
                 <li class="lis">
-                    <div class="sidebar-item" onclick="window.location.href='database.html'">
+                    <div class="sidebar-item">
                         <p><img src="./assets/sidebar1.png" width="40" height="40" alt="" class="sidebar-item-icon"></p>
                     </div>
                 </li>
@@ -75,9 +77,35 @@
         </div>
     </div>
 
+    <div class="flex-container" id="cardScreen">
+        <table id="table_id" class="display" style="width:100%">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Temperature</th>
+                <th>Humidity</th>
+            </tr>
+            </thead>
+            <tbody id="table_body">
+
+            </tbody>
+            <tfoot>
+            <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Temperature</th>
+                <th>Humidity</th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+
+
 </div>
 
 
 <script src="navbar.js"></script>
+<script src="database.js"></script>
 </body>
 </html>

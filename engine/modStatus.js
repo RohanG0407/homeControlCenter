@@ -10,7 +10,6 @@ if (!firebase.apps.length) {
 var database = firebase.database();
 
 function ac_onclick() {
-
     database.ref('/states/ac/').once('value').then(function(snapshot) {
         var status = snapshot.val();
         if(status['status'] === "off") {

@@ -36,9 +36,10 @@ module.exports.takeSnap = async function() {
 
 
 //used to write data to certain database path given the object
-function writeData(path, object) {
-    database.ref(path).patch(object);
-}
+module.exports.writeData = function(path, object) {
+    database.ref(path).set(object);
+};
+
 
 
 

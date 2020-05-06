@@ -1,40 +1,38 @@
 var Chart = require('chart.js');
-require('./loadFirebase.js');
+var loadF = require('./loadFirebase.js');
 const {ipcRenderer} = require('electron');
 var ctx = document.getElementById('myChart');
 Chart.defaults.global.legend.display = false;
 Chart.defaults.global.defaultFontColor = "#b48ead";
-var arguments;
+let worker;
 const tick = Date.now();
 const log = (v) => console.log(`${v} \n Elapsed: ${Date.now() - tick}ms`);
 
+function initWorker() {
+    worker = new Worker('graphWorker.js');
+    worker.addEventListener('message', workerMessaged);
+    worker.addEventListener('error', workerError);
+}
+
+async function workerMessaged(ev) {
+    updateArray(ev.data);
+    log("chart updated");
+}
+
+function workerError(ev) {
+    let v = ev.data;
+    console.log(v);
+}
+
+initWorker();
 //gets data from loadFirebase.js
-ipcRenderer.on("reply", (event, args) => {
-    arguments = args;
-    console.log(arguments);
-    rawArray = sortArr(arguments);
-    //updateArray();
-
-    rawArray.sort(function(a, b) {
-        var a = new Date(a.t);
-        var b = new Date(b.t);
-        return a>b ? -1 : a<b ? 1 : 0;
-    });
-    myChart.data.datasets[0]['data'] = normalizeData(rawArray);
-    myChart.update();
-});
-
-var updateArray = async() => {
-    var rawArray = await sortArr(arguments);
-    rawArray.sort(function(a, b) {
-        var a = new Date(a.t);
-        var b = new Date(b.t);
-        return a>b ? -1 : a<b ? 1 : 0;
-    });
-    myChart.data.datasets[0]['data'] = normalizeData(rawArray);
-    myChart.update();
-};
-
+async function updateChart () {
+    log("calling");
+    await loadF.takeSnap();
+    log('data recieved');
+    worker.postMessage(loadF.data);
+}
+updateChart();
 
 
 
@@ -127,32 +125,14 @@ function normalizeData(sortedrawData) {
     return normalizedArray;
 }
 
-const xd = () => {
-    return Promise.resolve().then(v => {
-        let i = 0;
-        while (i < 1000000000) {
-            i++;
-        }
-        return 'done';
-    })
-};
-function sortArr(args) {
-            let arr = [];
-            for(var i = 0; i < Object.keys(args).length; i++) {
-                var element = Object.keys(args)[i];
-                var element_Split = element.split("|");
-                let dateSplit = element_Split[0].split("-");
-                let timeSplit = element_Split[1].split("-");
-                var temp = data[element]['Temp'];
-                var temp  = (temp * (9/5)) + 32;
-                var date = new Date(dateSplit[0], dateSplit[1]-1, dateSplit[2], timeSplit[0], timeSplit[1], timeSplit[2]);
-                var newPush = {
-                    t: date,
-                    y: temp,
-                };
-                arr.push(newPush);
-            }
-            return arr;
-}
 
+var updateArray = async(rawArray) => {
+    rawArray.sort(function(a, b) {
+        var a = new Date(a.t);
+        var b = new Date(b.t);
+        return a>b ? -1 : a<b ? 1 : 0;
+    });
+    myChart.data.datasets[0]['data'] = normalizeData(rawArray);
+    myChart.update();
+};
 

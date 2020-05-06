@@ -1,4 +1,10 @@
-var knob = pureknob.createKnob(300, 300);
+let domEl = document.querySelector('#settempcard');
+let domElStyle = getComputedStyle(domEl);
+let width = domElStyle.width;
+width = width.substring(0,width.length -2 );
+let height = domElStyle.height;
+height = height.substring(0,height.length -2 );
+var knob = pureknob.createKnob(width * .9, height * .9);
 
 // Set properties.
 knob.setProperty('angleStart', -0.75 * Math.PI);

@@ -1,12 +1,11 @@
 const firebase = require('firebase/app');
 const {ipcRenderer} = require('electron');
 require('firebase/database');
-hello = "hello";
 data = 0;
 
 
 
-var firebaseConfig = {
+module.exports.firebaseConfig = {
     apiKey: "AIzaSyBighCpEuN8z1agFEtznM1BqEYQnk8glmU",
     authDomain: "home-6b0c0.firebaseapp.com",
     databaseURL: "https://home-6b0c0.firebaseio.com",
@@ -18,23 +17,19 @@ var firebaseConfig = {
 };
 
 if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
+    firebase.initializeApp(module.exports.firebaseConfig);
 }
 
 var database = firebase.database();
 
 //take 1 picture of the entire database -- no listener for updates
-function takeSnapshot() {
-    database.ref('/sensors/temp/').once('value').then(function(snapshot) {
-         data = snapshot.val();
-        //sends message to graphCard.js with database data
-        ipcRenderer.send("new-snapshot", data);
+module.exports.takeSnap = async function() {
+    await database.ref('/sensors/temp/').once('value').then(function(snapshot) {
+         module.exports.data = snapshot.val();
     });
 
-}
+};
 
-//Calls
-takeSnapshot();
 
 
 
